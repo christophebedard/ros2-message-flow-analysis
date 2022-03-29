@@ -1,0 +1,9 @@
+repositories:
+  ros-realtime/reference-system:
+    type: git
+    url: https://github.com/christophebedard/reference-system.git
+    version: message-link-instrumentation
+  ros2-message-flow-test-cases:
+    type: git
+    url: git@github.com:christophebedard/ros2-message-flow-test-cases.git
+    version: master

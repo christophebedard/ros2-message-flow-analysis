@@ -1,0 +1,13 @@
+repositories:
+  eProsima/Fast-DDS:
+    type: git
+    url: https://github.com/christophebedard/Fast-DDS.git
+    version: instrumentation-lttng
+  eclipse-cyclonedds/cyclonedds:
+    type: git
+    url: https://github.com/christophebedard/cyclonedds.git
+    version: instrumentation-lttng
+  ros-tracing/ros2_tracing:
+    type: git
+    url: https://github.com/christophebedard/ros2_tracing.git
+    version: message-link-instrumentation
