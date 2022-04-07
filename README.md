@@ -84,7 +84,7 @@ See https://github.com/christophebedard/ros2-message-flow-test-cases.
             ros2 launch ros2_message_flow_testcases examples/example-1_transport_2.launch.py
             ```
         * The order does not really matter
-    * Data will be written to `examples/*-YYYYMMDDTHHMMSS`
+    * Data will be written to `examples/trace-example-*-YYYYMMDDTHHMMSS`
 
 ### Autoware reference system
 
