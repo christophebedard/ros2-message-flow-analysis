@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Workspace setup script for the ROS 2 message flow analysis reference_system experiment
+# Workspace setup script for the ROS 2 message flow analysis Autoware reference system experiment
 #
 # See README for the full instructions.
 

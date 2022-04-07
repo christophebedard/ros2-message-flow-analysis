@@ -13,10 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Reference system experiment
+# Autoware reference system experiment
 # Run with the system ID (1 or 2) as an argument
 
 ws="exp-1_ws"
+
+if [ ! -d "${ws}" ]; then
+    echo "Error: make sure to setup workspace: exp-1_setup_workspace.sh"
+    exit 1
+fi
 
 source ${ws}/install/setup.bash
 

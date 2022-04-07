@@ -43,7 +43,12 @@ BibTeX:
 
 ## Experiments
 
-### Test cases
+For all systems:
+1. Setup system to build ROS 2 and enable tracing
+    * https://docs.ros.org/en/rolling/Installation/Ubuntu-Development-Setup.html
+    * https://gitlab.com/ros-tracing/ros2_tracing
+
+### Examples
 
 See https://github.com/christophebedard/ros2-message-flow-test-cases.
 
@@ -53,10 +58,8 @@ In this experiment, we run and trace the [Autoware reference system proposed by 
 We first run it in a single process on a single system, and then distributed it over multiple processes over 2 systems.
 
 1. For each of the 2 systems
-    1. Setup system to build ROS 2 and enable tracing
-        * https://docs.ros.org/en/rolling/Installation/Ubuntu-Development-Setup.html
-        * https://gitlab.com/ros-tracing/ros2_tracing
-            * Make sure to also install the LTTng kernel tracer
+    1. Make sure that the LTTng kernel tracer is installed
+        * https://gitlab.com/ros-tracing/ros2_tracing#building
     1. Setup code workspaces and build
         ```sh
         ./exp-1_setup_workspace.sh
