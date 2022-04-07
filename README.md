@@ -177,5 +177,5 @@ In this experiment, we distribute and run [RTAB-Map](https://github.com/introlab
 * For running experiments on a separate system
     * Copy experiment directories from remote to local
         ```sh
-        scp -P $PORT -r $USER@server:/home/$USER/ros2_tracing-message-flow-analysis-experiments/reference-system-* .
+        scp -P $PORT -r $USER@server:/home/$USER/ros2-message-flow-analysis/examples/trace-example-* .
         ```
