@@ -105,14 +105,14 @@ We first run it in a single process on a single system, and then distributed it 
         <!-- ./exp-1_run.sh -->
         ```sh
         source exp-1_ws/install/setup.bash
-        ros2 launch reference_system.launch.py
+        ros2 launch experiment-1/reference_system.launch.py
         ```
     * Distributed over 2 systems
         * On system 1
             <!-- ./exp-1_run.sh 1 -->
             ```sh
             source exp-1_ws/install/setup.bash
-            ros2 launch reference_system_1.launch.py
+            ros2 launch experiment-1/reference_system_1.launch.py
             ```
             ```sh
             ```
@@ -120,10 +120,10 @@ We first run it in a single process on a single system, and then distributed it 
             <!-- ./exp-1_run.sh 2 -->
             ```sh
             source exp-1_ws/install/setup.bash
-            ros2 launch reference_system_2.launch.py
+            ros2 launch experiment-1/reference_system_2.launch.py
             ```
         * The order does not really matter
-    * Experiment data will be written to `reference-system-N-YYYYMMDDTHHMMSS`
+    * Experiment data will be written to `experiment-1/trace-reference-system*-YYYYMMDDTHHMMSS`
 1. Analyze the trace
     * See [*Analysis*](#analysis)
 

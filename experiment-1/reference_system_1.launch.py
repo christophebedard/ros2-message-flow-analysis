@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Launch file for reference_system experiment on a single host."""
+"""Launch file for system 1 for the reference_system experiment."""
 
 import os
 
@@ -21,32 +21,46 @@ import launch_ros
 from tracetools_launch.action import Trace
 
 
-def generate_launch_description():  # noqa: D103
+def get_launch_description(group_id: int, group_num_nodes: int) -> launch.LaunchDescription:
+    """Get reference system launch description given group ID and total number of nodes."""
     length_arg = launch.actions.DeclareLaunchArgument(
         'length',
         default_value='60.0',
         description='length of execution in seconds',
     )
 
+    nodes = [
+        launch_ros.actions.Node(
+            package='autoware_reference_system',
+            executable=f'autoware_default_singlethreaded_{group_id}{node_id}',
+        )
+        for node_id in [str(chr(97 + ni)) for ni in range(group_num_nodes)]
+    ]
+
     return launch.LaunchDescription([
         length_arg,
         Trace(
-            session_name='reference-system',
+            session_name=f'trace-reference-system-{group_id}',
             append_timestamp=True,
             base_path=os.path.dirname(os.path.realpath(__file__)),
             events_ust=[
                 'dds:*',
                 'ros2:*',
             ],
-            events_kernel=[],
+            # For trace synchronization
+            events_kernel=[
+                'net_dev_queue',
+                'net_if_receive_skb',
+            ],
         ),
-        launch_ros.actions.Node(
-            package='autoware_reference_system',
-            executable='autoware_default_singlethreaded',
-        ),
+        *nodes,
         # Shut down after some time, otherwise the system would run indefinitely
         launch.actions.TimerAction(
             period=launch.substitutions.LaunchConfiguration(length_arg.name),
             actions=[launch.actions.Shutdown(reason='stopping system')],
         ),
     ])
+
+
+def generate_launch_description():  # noqa: D103
+    return get_launch_description(1, 4)

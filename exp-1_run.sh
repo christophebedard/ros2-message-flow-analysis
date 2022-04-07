@@ -32,5 +32,6 @@ else
     launch_file="reference_system_${system_id}.launch.py"
 fi
 
+cd experiment-1/
 echo "Launching: ${launch_file}"
 ros2 launch ${launch_file}

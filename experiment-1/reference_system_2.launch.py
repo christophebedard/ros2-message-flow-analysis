@@ -40,13 +40,14 @@ def get_launch_description(group_id: int, group_num_nodes: int) -> launch.Launch
     return launch.LaunchDescription([
         length_arg,
         Trace(
-            session_name=f'reference-system-{group_id}',
+            session_name=f'trace-reference-system-{group_id}',
             append_timestamp=True,
             base_path=os.path.dirname(os.path.realpath(__file__)),
             events_ust=[
                 'dds:*',
                 'ros2:*',
             ],
+            # For trace synchronization
             events_kernel=[
                 'net_dev_queue',
                 'net_if_receive_skb',

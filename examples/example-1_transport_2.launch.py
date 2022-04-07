@@ -33,14 +33,14 @@ def generate_launch_description():
             session_name='trace-example-1-b',
             append_timestamp=True,
             base_path=os.path.dirname(os.path.realpath(__file__)),
+            events_ust=[
+                'dds:*',
+                'ros2:*',
+            ],
             # For trace synchronization
             events_kernel=[
                 'net_dev_queue',
                 'net_if_receive_skb',
-            ],
-            events_ust=[
-                'dds:*',
-                'ros2:*',
             ],
         ),
         launch_ros.actions.Node(
