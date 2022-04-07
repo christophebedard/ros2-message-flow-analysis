@@ -30,7 +30,7 @@ def generate_launch_description():
     return launch.LaunchDescription([
         length_arg,
         Trace(
-            session_name='trace-example-4_single_partial_sync_N-to-M',
+            session_name='trace-example-4',
             append_timestamp=True,
             base_path=os.path.dirname(os.path.realpath(__file__)),
             events_kernel=[],
