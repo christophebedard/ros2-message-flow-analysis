@@ -24,7 +24,7 @@ from tracetools_launch.action import Trace
 def generate_launch_description():
     length_arg = launch.actions.DeclareLaunchArgument(
         'length',
-        default_value='30.0',
+        default_value='10.0',
         description='length of execution in seconds',
     )
     return launch.LaunchDescription([
