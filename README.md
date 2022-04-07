@@ -47,10 +47,44 @@ For all systems:
 1. Setup system to build ROS 2 and enable tracing
     * https://docs.ros.org/en/rolling/Installation/Ubuntu-Development-Setup.html
     * https://gitlab.com/ros-tracing/ros2_tracing
+        * The LTTng kernel tracer will be required for some experiments ([examples](#examples) and [experiment 1](#autoware-reference-system))
 
 ### Examples
 
 See https://github.com/christophebedard/ros2-message-flow-test-cases.
+
+1. For each of the 2 systems
+    1. Make sure that the LTTng kernel tracer is installed
+        * https://gitlab.com/ros-tracing/ros2_tracing#building
+    1. Setup code workspaces and build
+        ```sh
+        ./exp-1_setup_workspace.sh
+        ```
+        * We use the same workspace as [experiment 1](#autoware-reference-system)
+1. Run examples
+    * First run the single-system examples on the system of your choice
+        <!-- ./examples_run.sh -->
+        ```sh
+        source exp-1_ws/install/setup.bash
+        ros2 launch ros2_message_flow_testcases examples/example-2_trivial.launch.py
+        ros2 launch ros2_message_flow_testcases examples/example-3_periodic_async.launch.py
+        ros2 launch ros2_message_flow_testcases examples/example-4_partial_sync.launch.py
+        ```
+    * Then run the distributed example over 2 systems
+        * On system 1
+            <!-- ./examples_run.sh 1 -->
+            ```sh
+            source exp-1_ws/install/setup.bash
+            ros2 launch ros2_message_flow_testcases examples/example-1_transport_1.launch.py
+            ```
+        * On system 2
+            <!-- ./examples_run.sh 2 -->
+            ```sh
+            source exp-1_ws/install/setup.bash
+            ros2 launch ros2_message_flow_testcases examples/example-1_transport_2.launch.py
+            ```
+        * The order does not really matter
+    * Data will be written to `examples/*-YYYYMMDDTHHMMSS`
 
 ### Autoware reference system
 
