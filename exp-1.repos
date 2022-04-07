@@ -6,4 +6,4 @@ repositories:
   ros2-message-flow-test-cases:
     type: git
     url: git@github.com:christophebedard/ros2-message-flow-test-cases.git
-    version: master
+    version: main
