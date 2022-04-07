@@ -34,7 +34,6 @@ if [ ! -d "${ws}" ]; then
 else
     cd ${ws}
     vcs pull src
-    cd ../
 fi
 
 colcon build --packages-up-to ros2_message_flow_testcases autoware_reference_system --mixin release
