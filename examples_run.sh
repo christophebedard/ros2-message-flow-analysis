@@ -29,12 +29,12 @@ source ${ws}/install/setup.bash
 cd examples/
 if [ "$#" -eq "0" ]; then
     # Run launch files one at a time, they should exit by themselves
-    ros2 launch ros2_message_flow_testcases example-2_trivial.launch.py
-    ros2 launch ros2_message_flow_testcases example-3_periodic_async.launch.py
-    ros2 launch ros2_message_flow_testcases example-4_partial_sync.launch.py
+    ros2 launch example-2_trivial.launch.py
+    ros2 launch example-3_periodic_async.launch.py
+    ros2 launch example-4_partial_sync.launch.py
 else
     # Run distributed example
     system_id="$1"
     launch_file="example-1_transport_${system_id}.launch.py"
-    ros2 launch ros2_message_flow_testcases ${launch_file}
+    ros2 launch ${launch_file}
 fi
