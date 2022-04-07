@@ -28,8 +28,9 @@ def generate_launch_description():
         description='length of execution in seconds',
     )
     return launch.LaunchDescription([
+        length_arg,
         Trace(
-            session_name='example-2_single_sync_1-to-1',
+            session_name='trace-example-2_single_sync_1-to-1',
             append_timestamp=True,
             base_path=os.path.dirname(os.path.realpath(__file__)),
             events_kernel=[],
