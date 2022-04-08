@@ -49,12 +49,6 @@ def generate_launch_description():
             arguments=['a', '5'],
             output='screen',
         ),
-        launch_ros.actions.Node(
-            package='ros2_message_flow_testcases',
-            executable='sync_one_to_one',
-            arguments=['b', 'c'],
-            output='screen',
-        ),
         # Shut down after some time, otherwise the system would run indefinitely
         launch.actions.TimerAction(
             period=launch.substitutions.LaunchConfiguration(length_arg.name),

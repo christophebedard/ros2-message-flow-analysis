@@ -45,14 +45,8 @@ def generate_launch_description():
         ),
         launch_ros.actions.Node(
             package='ros2_message_flow_testcases',
-            executable='sync_one_to_one',
-            arguments=['a', 'b'],
-            output='screen',
-        ),
-        launch_ros.actions.Node(
-            package='ros2_message_flow_testcases',
             executable='sink',
-            arguments=['c'],
+            arguments=['a'],
             output='screen',
         ),
         # Shut down after some time, otherwise the system would run indefinitely
