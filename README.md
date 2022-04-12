@@ -124,15 +124,56 @@ We first run it in a single process on a single system, and then distributed it 
             ```
         * The order does not really matter
     * Experiment data will be written to `experiment-1/trace-reference-system*-YYYYMMDDTHHMMSS`
-1. Analyze the trace
+1. Analyze the traces
     * See [*Analysis*](#analysis)
 
 ### RTAB-Map
 
 In this experiment, we distribute and run [RTAB-Map](https://github.com/introlab/rtabmap) over 2 systems and trace it.
+We have 4 components: the camera driver node, the odometry node, the RTAB-Map node, and rviz.
+These can be split up into two separate groups, one for each system.
 
-1. TODO
-1. Analyze the trace
+1. For each of the 2 systems
+    1. Setup [`rtabmap_ros`](https://github.com/introlab/rtabmap_ros) using the [`ros2` branch](https://github.com/introlab/rtabmap_ros/tree/ros2)
+        * Follow the build instructions
+    1. Prepare camera and driver
+        * We use an Intel RealSense D400, so we use the `realsense_d400.launch.py` launch file
+1. Synchronize system clocks
+    1. Using NTP or PTP
+1. Modify launch files
+    1. Add `Trace` action to existing launch files to trace the system when executing them: `realsense_d400.launch.py` and `rtabmap_kitti.launch.py`
+        ```py
+        # ...
+        from tracetools_launch.action import Trace
+        # ...
+        return LaunchDescription([
+            # Tracing
+            Trace(
+                session_name='rtabmap-kitti',
+                events_ust=[
+                    'ros2:*',
+                    'dds:*',
+                ],
+                events_kernel=[],
+            ),
+            # ...
+        ])
+        # ...
+        ```
+1. Run experiment
+    * On system 1
+        ```sh
+        ros2 launch rtabmap_ros realsense_d400.launch.py
+        ```
+    * On system 2
+        ```sh
+        ros2 launch rtabmap_ros rtabmap_kitti.launch.py
+        ```
+    * The `rtabmap_kitti.launch.py` launch file can be modified to launch the `*_odometry` node and the `rtabmap` node separately
+        * The `*_odometry` node can then be run on system 1
+    * Launch rviz on system 2 for visualization
+    * Experiment data will be written to `~/.ros/tracing/rtabmap-kitti` on each system
+1. Analyze the traces
     * See [*Analysis*](#analysis)
 
 ## Analysis
@@ -156,11 +197,13 @@ In this experiment, we distribute and run [RTAB-Map](https://github.com/introlab
     1. In the tree view on the left, under *Traces*, select both traces
     1. Then right click, and, under *Open As Experiment...*, select *ROS 2 Experiment*
     1. (See also the [user guide](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Main-Features.html#Creating_an_Experiment))
+1. (for Autoware reference system experiement) Synchronize traces
+    * See [*Synchronize traces in Trace Compass*](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-synchronization.html#Synchronize_traces_in_Trace_Compass)
 1. Open *Messages* view
-    1. This shows timer & subscription callbacks as well as message publications and receptions over time for each node.
-    1. Arrows also provide links between subscription or timer callbacks and message publications, as well as between message publications and the resulting subscription callback(s).
+    * This shows timer & subscription callbacks as well as message publications and receptions over time for each node.
+    * Arrows also provide links between subscription or timer callbacks and message publications, as well as between message publications and the resulting subscription callback(s).
 1. Navigate and inspect the trace
-    1. Basic controls:
+    * Basic controls:
         * `Ctrl` and mouse wheel up/down to zoom in/out
         * `Shift` and mouse wheel up/dowm to move left/right
 1. Run *Message Flow* analysis
