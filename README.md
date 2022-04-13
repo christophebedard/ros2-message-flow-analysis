@@ -141,7 +141,7 @@ These can be split up into two separate groups, one for each system.
 1. Synchronize system clocks
     1. Using NTP or PTP
 1. Modify launch files
-    1. Add `Trace` action to existing launch files to trace the system when executing them: `realsense_d400.launch.py` and `rtabmap_kitti.launch.py`
+    1. Add `Trace` action to existing launch files to trace the system when executing them: `realsense_d400.launch.py` and `rtabmap.launch.py`
         ```py
         # ...
         from tracetools_launch.action import Trace
@@ -167,9 +167,9 @@ These can be split up into two separate groups, one for each system.
         ```
     * On system 2
         ```sh
-        ros2 launch rtabmap_ros rtabmap_kitti.launch.py
+        ros2 launch rtabmap_ros rtabmap.launch.py
         ```
-    * The `rtabmap_kitti.launch.py` launch file can be modified to launch the `*_odometry` node and the `rtabmap` node separately
+    * The `rtabmap.launch.py` launch file can be modified to launch the `*_odometry` node and the `rtabmap` node separately
         * The `*_odometry` node can then be run on system 1
     * Launch rviz on system 2 for visualization
     * Experiment data will be written to `~/.ros/tracing/rtabmap-kitti` on each system
