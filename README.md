@@ -114,8 +114,6 @@ We first run it in a single process on a single system, and then distributed it 
             source exp-1_ws/install/setup.bash
             ros2 launch experiment-1/reference_system_1.launch.py
             ```
-            ```sh
-            ```
         * On system 2
             <!-- ./exp-1_run.sh 2 -->
             ```sh
@@ -123,6 +121,19 @@ We first run it in a single process on a single system, and then distributed it 
             ros2 launch experiment-1/reference_system_2.launch.py
             ```
         * The order does not really matter
+    * Variant: launch the same system again, but with `reference_system_1b.launch.py` for system 1, which uses a multi-threaded executor for one of the most critical processes
+        * On system 1
+            <!-- ./exp-1_run.sh 1 -->
+            ```sh
+            source exp-1_ws/install/setup.bash
+            ros2 launch experiment-1/reference_system_1b.launch.py
+            ```
+        * On system 2
+            <!-- ./exp-1_run.sh 2 -->
+            ```sh
+            source exp-1_ws/install/setup.bash
+            ros2 launch experiment-1/reference_system_2.launch.py
+            ```
     * Experiment data will be written to `experiment-1/trace-reference-system*-YYYYMMDDTHHMMSS`
 1. Analyze the traces
     * See [*Analysis*](#analysis)
