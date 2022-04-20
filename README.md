@@ -187,6 +187,40 @@ These can be split up into two separate groups, one for each system.
 1. Analyze the traces
     * See [*Analysis*](#analysis)
 
+### Overhead
+
+In this overhead experiment, we evaluate the end-to-end latency for a typical system when tracing is enabled and when it is disabled.
+
+1. For each of the 2 systems
+    1. Workspace with tracing
+        ```sh
+        ./exp-1_setup_workspace.sh
+        ```
+        * We use the same workspace as [experiment 1](#autoware-reference-system)
+    1. Workspace without any tracepoints or instrumentation
+        ```sh
+        ./exp-3_setup_workspace.sh
+        ```
+1. Run experiment
+    1. First with tracing
+        ```sh
+        source exp-1_ws/install/setup.bash
+        ros2 launch overhead/end_to_end_tracing.launch.py
+        ```
+        * Latency data will be written to `latencies_tracing_*.txt`
+    1. Then without tracing
+        ```sh
+        source exp-3_ws/install/setup.bash
+        ros2 launch overhead/end_to_end_no-tracing.launch.py
+        ```
+        * Latency data will be written to `latencies_no-tracing_*.txt`
+1. Plot results
+    * Providing the names of the two files
+        ```sh
+        python3 overhead/analyze.py latencies_no-tracing_*.txt latencies_tracing_*.txt
+        ```
+    * A plot will be displayed and written to a file
+
 ## Analysis
 
 1. Set up [Eclipse Trace Compass](https://www.eclipse.org/tracecompass/)
