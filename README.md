@@ -189,7 +189,8 @@ These can be split up into two separate groups, one for each system.
 
 ### Overhead
 
-In this overhead experiment, we evaluate the end-to-end latency for a typical system when tracing is enabled and when it is disabled.
+In this experiment, we evaluate the end-to-end latency for a typical system when tracing is disabled and when it is enabled.
+The end-to-end latency difference is the overhead.
 
 1. For each of the 2 systems
     1. Workspace with tracing
@@ -217,9 +218,10 @@ In this overhead experiment, we evaluate the end-to-end latency for a typical sy
 1. Plot results
     * Providing the names of the two files
         ```sh
-        python3 overhead/analyze.py latencies_no-tracing_*.txt latencies_tracing_*.txt
+        cd overhead/
+        python3 plot_latencies.py latencies_no-tracing_*.txt latencies_tracing_*.txt
         ```
-    * A plot will be displayed and written to a file
+    * A plot will be displayed and exported to a file
 
 ## Analysis
 
