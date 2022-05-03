@@ -18,7 +18,7 @@ BibTeX:
 }
 ```
 
-## Relevant pepositories
+## Relevant repositories
 
 * `ros2_tracing`: tracing instrumentation and launch tools for ROS 2
     * [repository](https://gitlab.com/ros-tracing/ros2_tracing)
@@ -88,7 +88,7 @@ See https://github.com/christophebedard/ros2-message-flow-test-cases.
 ### Autoware reference system
 
 In this experiment, we run and trace the [Autoware reference system proposed by the ROS 2 Real-Time Working Group](https://github.com/ros-realtime/reference-system).
-We first run it in a single process on a single system, and then distributed it over multiple processes over 2 systems.
+We first run it in a single process on a single system, and then distribute it over multiple processes over 2 systems.
 
 1. For each of the 2 systems
     1. Make sure that the LTTng kernel tracer is installed
