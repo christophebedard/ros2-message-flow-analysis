@@ -150,6 +150,17 @@ def plot(
     ax.set_xticklabels(['without tracing', 'with tracing'])
     ax.set(ylabel=ylabel)
 
+    # See: https://matplotlib.org/3.1.0/gallery/subplots_axes_and_figures/broken_axis.html
+    break_height = 0.008
+    break_width = 0.020
+    kwargs = dict(
+        transform=ax.transAxes,
+        color='k',
+        clip_on=False)
+    y_offset = 0.012
+    ax.plot((-break_width, +break_width), (-break_height, +break_height), **kwargs)
+    ax.plot((-break_width, +break_width), (-break_height + y_offset, +break_height + y_offset), **kwargs)
+
     filename = f'./{figure_filename}'
     fig.savefig(f'{filename}.png')
     fig.savefig(f'{filename}.svg')
