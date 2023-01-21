@@ -4,17 +4,19 @@ ROS 2 message flow analysis experiments using [`ros2_tracing`](https://gitlab.co
 
 This is part of the [ROS 2 message flow paper](https://arxiv.org/abs/2204.10208).
 If you use or refer to this method or this repository, please cite:
-<!-- TODO replace with early access/published version when available -->
-* C. Bédard, P.-Y. Lajoie, G. Beltrame, and M. Dagenais, "Message Flow Analysis with Complex Causal Links for Distributed ROS 2 Systems," *arXiv preprint arXiv:2204.10208*, 2022.
+* C. Bédard, P.-Y. Lajoie, G. Beltrame, and M. Dagenais, "Message Flow Analysis with Complex Causal Links for Distributed ROS 2 Systems," *Robotics and Autonomous Systems*, vol. 161, p. 104361, 2023.
 
 BibTeX:
 
 ```bibtex
-@article{bedard2022message,
-  title={Message Flow Analysis with Complex Causal Links for Distributed ROS 2 Systems},
+@article{bedard2023messageflow,
+  title={Message flow analysis with complex causal links for distributed {ROS} 2 systems},
   author={B{\'e}dard, Christophe and Lajoie, Pierre-Yves and Beltrame, Giovanni and Dagenais, Michel},
-  journal={arXiv preprint arXiv:2204.10208},
-  year={2022}
+  journal={Robotics and Autonomous Systems},
+  year={2023},
+  volume={161},
+  pages={104361},
+  doi={10.1016/j.robot.2022.104361}
 }
 ```
 
