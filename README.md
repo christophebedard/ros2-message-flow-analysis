@@ -1,6 +1,6 @@
 # ROS 2 message flow analysis experiments
 
-ROS 2 message flow analysis experiments using [`ros2_tracing`](https://gitlab.com/ros-tracing/ros2_tracing) and [Eclipse Trace Compass](https://www.eclipse.org/tracecompass/).
+ROS 2 message flow analysis experiments using [`ros2_tracing`](https://github.com/ros2/ros2_tracing) and [Eclipse Trace Compass](https://www.eclipse.org/tracecompass/).
 
 This is part of the [ROS 2 message flow paper](https://arxiv.org/abs/2204.10208).
 If you use or refer to this method or this repository, please cite:
@@ -23,7 +23,7 @@ BibTeX:
 ## Relevant repositories
 
 * `ros2_tracing`: tracing instrumentation and launch tools for ROS 2
-    * [repository](https://gitlab.com/ros-tracing/ros2_tracing)
+    * [repository](https://github.com/ros2/ros2_tracing)
     * branch: [`message-link-instrumentation`](https://github.com/christophebedard/ros2_tracing/tree/message-link-instrumentation)
 * Trace Compass Incubator
     * [website](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Incubator.html#Trace_Compass_Incubator)
@@ -47,7 +47,7 @@ BibTeX:
 For all systems:
 1. Setup system to build ROS 2 and enable tracing
     * https://docs.ros.org/en/rolling/Installation/Ubuntu-Development-Setup.html
-    * https://gitlab.com/ros-tracing/ros2_tracing
+    * https://github.com/ros2/ros2_tracing
         * The LTTng kernel tracer will be required for some experiments ([examples](#examples) and [experiment 1](#autoware-reference-system))
 
 ### Examples
@@ -56,7 +56,7 @@ See https://github.com/christophebedard/ros2-message-flow-test-cases.
 
 1. For each of the 2 systems
     1. Make sure that the LTTng kernel tracer is installed
-        * https://gitlab.com/ros-tracing/ros2_tracing#building
+        * https://github.com/ros2/ros2_tracing#building
     1. Setup code workspaces and build
         ```sh
         ./exp-1_setup_workspace.sh
@@ -94,7 +94,7 @@ We first run it in a single process on a single system, and then distribute it o
 
 1. For each of the 2 systems
     1. Make sure that the LTTng kernel tracer is installed
-        * https://gitlab.com/ros-tracing/ros2_tracing#building
+        * https://github.com/ros2/ros2_tracing#building
     1. Setup code workspaces and build
         ```sh
         ./exp-1_setup_workspace.sh
