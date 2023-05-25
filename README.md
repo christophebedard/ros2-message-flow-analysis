@@ -27,7 +27,7 @@ BibTeX:
     * branch: [`message-link-instrumentation`](https://github.com/christophebedard/ros2_tracing/tree/message-link-instrumentation)
 * Trace Compass Incubator
     * [website](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Incubator.html#Trace_Compass_Incubator)
-    * branch: [`ros2-message-flow`](https://github.com/christophebedard/tracecompass-incubator/tree/ros2-message-flow)
+    * (or build from source using default [`master`](https://git.eclipse.org/r/plugins/gitiles/tracecompass.incubator/org.eclipse.tracecompass.incubator) branch)
 * DDS implementations
     * Fast DDS
         * [repository](https://github.com/eProsima/Fast-DDS)
@@ -230,7 +230,6 @@ The end-to-end latency difference is the overhead.
     * Currently, to use the analysis features described in the paper, Trace Compass needs to be built from source
     * Follow the instructions on the [*Development Environment Setup* page](https://wiki.eclipse.org/Trace_Compass/Development_Environment_Setup) up to *Run (or Debug) the plugins*
         * Clone & build both Trace Compass and the Trace Compass Incubator
-        * Use this branch for the Incubator: [`ros2-message-flow`](https://github.com/christophebedard/tracecompass-incubator/tree/ros2-message-flow)
 1. Run Trace Compass
     * See the [*Run (or Debug) the plugins* section](https://wiki.eclipse.org/Trace_Compass/Development_Environment_Setup#Run_.28or_Debug.29_the_plugins)
     * See the [*Trace Compass User Guide*](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/User-Guide.html) for a full user guide
