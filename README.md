@@ -230,6 +230,11 @@ The end-to-end latency difference is the overhead.
         * Under *Trace Types*, select *Trace Compass ROS 2 (Incubation)*
         * Click *Next* twice, then accept the license terms, and click *Finish*
         * When prompted, restart Trace Compass
+    * Or use the provided Dockerfile:
+        ```sh
+        docker build --tag tc-incubator tc-incubator/
+        docker run --net=host -e DISPLAY -v ~/.ros/tracing:/root/.ros/tracing -v ~/.tracecompass:/root/.tracecompass tc-incubator
+        ```
 1. Run Trace Compass
     * See the [*Run (or Debug) the plugins* section](https://wiki.eclipse.org/Trace_Compass/Development_Environment_Setup#Run_.28or_Debug.29_the_plugins)
     * See the [*Trace Compass User Guide*](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/User-Guide.html) for a full user guide
