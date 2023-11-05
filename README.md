@@ -1,6 +1,6 @@
 # ROS 2 message flow analysis experiments
 
-ROS 2 message flow analysis experiments using [`ros2_tracing`](https://github.com/ros2/ros2_tracing) and [Eclipse Trace Compass](https://www.eclipse.org/tracecompass/).
+ROS 2 message flow analysis experiments using [`ros2_tracing`](https://github.com/ros2/ros2_tracing) and [Eclipse Trace Compass](https://eclipse.dev/tracecompass/).
 
 This is part of the [ROS 2 message flow paper](https://arxiv.org/abs/2204.10208).
 If you use or refer to this method or this repository, please cite:
@@ -25,9 +25,6 @@ BibTeX:
 * `ros2_tracing`: tracing instrumentation and launch tools for ROS 2
     * [repository](https://github.com/ros2/ros2_tracing)
     * branch: [`message-link-instrumentation`](https://github.com/christophebedard/ros2_tracing/tree/message-link-instrumentation)
-* Trace Compass Incubator
-    * [website](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Incubator.html#Trace_Compass_Incubator)
-    * (or build from source using default [`master`](https://git.eclipse.org/r/plugins/gitiles/tracecompass.incubator/org.eclipse.tracecompass.incubator) branch)
 * DDS implementations
     * Fast DDS
         * [repository](https://github.com/eProsima/Fast-DDS)
@@ -226,10 +223,13 @@ The end-to-end latency difference is the overhead.
 
 ## Analysis
 
-1. Set up [Eclipse Trace Compass](https://www.eclipse.org/tracecompass/)
-    * Currently, to use the analysis features described in the paper, Trace Compass needs to be built from source
-    * Follow the instructions on the [*Development Environment Setup* page](https://wiki.eclipse.org/Trace_Compass/Development_Environment_Setup) up to *Run (or Debug) the plugins*
-        * Clone & build both Trace Compass and the Trace Compass Incubator
+1. Download [Eclipse Trace Compass](https://eclipse.dev/tracecompass/)
+    * Install ROS 2 features from the [Trace Compass Incubator](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Incubator.html#Trace_Compass_Incubator):
+        * Open Trace Compass, click on *Help*, then *Install New Software...*
+        * Enter the following update site URL: `https://download.eclipse.org/tracecompass.incubator/master/repository/`
+        * Under *Trace Types*, select *Trace Compass ROS 2 (Incubation)*
+        * Click *Next* twice, then accept the license terms, and click *Finish*
+        * When prompted, restart Trace Compass
 1. Run Trace Compass
     * See the [*Run (or Debug) the plugins* section](https://wiki.eclipse.org/Trace_Compass/Development_Environment_Setup#Run_.28or_Debug.29_the_plugins)
     * See the [*Trace Compass User Guide*](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/User-Guide.html) for a full user guide
