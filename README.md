@@ -248,7 +248,7 @@ The end-to-end latency difference is the overhead.
     1. In the tree view on the left, under *Traces*, select both traces
     1. Then right click, and, under *Open As Experiment...*, select *ROS 2 Experiment*
     1. (See also the [user guide](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Main-Features.html#Creating_an_Experiment))
-1. (for Autoware reference system experiement) Synchronize traces
+1. (for Autoware reference system experiment) Synchronize traces
     * See [*Synchronize traces in Trace Compass*](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-synchronization.html#Synchronize_traces_in_Trace_Compass)
 1. Open *Messages* view
     * This shows timer & subscription callbacks as well as message publications and receptions over time for each node.
