@@ -236,7 +236,7 @@ The end-to-end latency difference is the overhead.
         docker run --net=host -e DISPLAY -v ~/.ros/tracing:/root/.ros/tracing -v ~/.tracecompass:/root/.tracecompass tc-incubator
         ```
 1. Run Trace Compass
-    * See the [*Run (or Debug) the plugins* section](https://wiki.eclipse.org/Trace_Compass/Development_Environment_Setup#Run_.28or_Debug.29_the_plugins)
+    * See the [*Running (or Debugging) the plugins* section](https://github.com/eclipse-tracecompass/org.eclipse.tracecompass/blob/master/DEVELOPMENT_ENV_SETUP.md#running-or-debugging-the-plugins)
     * See the [*Trace Compass User Guide*](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/User-Guide.html) for a full user guide
 1. Import trace and visualize
     1. Under *File*, click on *Import...*
