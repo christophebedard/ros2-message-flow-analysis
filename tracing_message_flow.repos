@@ -7,7 +7,7 @@ repositories:
     type: git
     url: https://github.com/christophebedard/cyclonedds.git
     version: instrumentation-lttng-update
-  ros-tracing/ros2_tracing:
+  ros2/ros2_tracing:
     type: git
-    url: https://github.com/christophebedard/ros2_tracing.git
+    url: https://github.com/ros2/ros2_tracing.git
     version: message-link-instrumentation

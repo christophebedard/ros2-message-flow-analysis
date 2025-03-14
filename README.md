@@ -43,8 +43,15 @@ BibTeX:
 
 For all systems:
 1. Setup system to build ROS 2 and enable tracing
-    * https://docs.ros.org/en/rolling/Installation/Ubuntu-Development-Setup.html
-    * https://github.com/ros2/ros2_tracing
+    1. Set up system to build ROS 2 from source. This was originally tested with ROS 2 Humble on Ubuntu 22.04: https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html
+    1. Install LTTng, including the kernel tracer: https://github.com/ros2/ros2_tracing/tree/humble#building
+        * Make sure that you have lttng-ust >= 2.13.3
+            * Otherwise, there's a build issue related to lttng-ust's `ctf_sequence_hex`, see [LTTng bug #1355](https://bugs.lttng.org/issues/1355)
+            * Check with:
+                ```sh
+                dpkg -l | grep liblttng-ust-dev
+                ```
+            * If the version installed on your system is lower than 2.13.3, [install a newer version (>= 2.13.3) using the LTTng stable PPA](https://lttng.org/docs/v2.13/#doc-ubuntu-ppa)
         * The LTTng kernel tracer will be required for some experiments ([examples](#examples) and [experiment 1](#autoware-reference-system))
 
 ### Examples
@@ -53,7 +60,7 @@ See https://github.com/christophebedard/ros2-message-flow-test-cases.
 
 1. For each of the 2 systems
     1. Make sure that the LTTng kernel tracer is installed
-        * https://github.com/ros2/ros2_tracing#building
+        * https://github.com/ros2/ros2_tracing/tree/humble#building
     1. Setup code workspaces and build
         ```sh
         ./exp-1_setup_workspace.sh
@@ -91,7 +98,7 @@ We first run it in a single process on a single system, and then distribute it o
 
 1. For each of the 2 systems
     1. Make sure that the LTTng kernel tracer is installed
-        * https://github.com/ros2/ros2_tracing#building
+        * https://github.com/ros2/ros2_tracing/tree/humble#building
     1. Setup code workspaces and build
         ```sh
         ./exp-1_setup_workspace.sh

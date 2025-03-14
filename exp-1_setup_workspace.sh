@@ -26,7 +26,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 if [ ! -d "${ws}" ]; then
     mkdir -p ${ws}/src
     cd ${ws}
-    vcs import src --input https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+    vcs import src --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
     # Use non-default branches/forks for some of the repos in the ros2.repos file
     vcs import src --input "${SCRIPT_DIR}/tracing_message_flow.repos" --force
     # Import additional repos for this experiment
