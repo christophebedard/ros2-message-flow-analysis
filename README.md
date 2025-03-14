@@ -24,7 +24,7 @@ BibTeX:
 
 * `ros2_tracing`: tracing instrumentation and launch tools for ROS 2
     * [repository](https://github.com/ros2/ros2_tracing)
-    * branch: [`message-link-instrumentation`](https://github.com/christophebedard/ros2_tracing/tree/message-link-instrumentation)
+    * branch: [`message-link-instrumentation`](https://github.com/ros2/ros2_tracing/tree/message-link-instrumentation)
 * DDS implementations
     * Fast DDS
         * [repository](https://github.com/eProsima/Fast-DDS)
